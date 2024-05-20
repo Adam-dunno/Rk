@@ -1,0 +1,21 @@
+name: Build and Test
+
+on:
+ push:
+  branches: [main]
+ pull_request:
+  branches: [main]
+
+jobs: 
+ build_Linux:
+
+  runs-on: ubuntu-latest
+
+  steps:
+  - uses: actions/checkout@v4
+
+  - name: Configure BuilderExample
+    run: cmake -H. -B ${{github.workspace}}/build
+
+  - name: Build BuilderExample
+    run: cmake --build ${{github.workspace}}/build
