@@ -4,6 +4,9 @@
 #include "LayoutManagerExample.cpp"
 #include "PersonBuilderExample.cpp"
 #include "PersonBuilder.cpp"
+#include "Person.cpp"
+#include <iostream>
+
 
 
 TEST(BuilderTest, ConceptualExample01) {
