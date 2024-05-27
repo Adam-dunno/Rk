@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.22)
 
-project(BuilderExample)
+project(example)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -14,17 +14,17 @@ add_library(PersonBuilderExample ${CMAKE_CURRENT_SOURCE_DIR}/PersonBuilderExampl
 add_library(LayoutManagerExample ${CMAKE_CURRENT_SOURCE_DIR}/LayoutManagerExample.cpp)
 
 # Создание исполняемого файла
-add_executable(BuilderExample ${CMAKE_CURRENT_SOURCE_DIR}/Program.cpp)
+add_executable(example ${CMAKE_CURRENT_SOURCE_DIR}/Program.cpp)
 
 # Линковка библиотек с исполняемым файлом
 target_link_libraries(Person PersonBuilder)
 target_link_libraries(PersonBuilderExample PersonBuilder)
 target_link_libraries(PersonBuilder PersonBuilderExample)
 target_link_libraries(PersonBuilder Person)
-target_link_libraries(BuilderExample PRIVATE ConceptualExample01 ConceptualExample02 Person PersonBuilder PersonBuilderExample LayoutManagerExample)
+target_link_libraries(example PRIVATE ConceptualExample01 ConceptualExample02 Person PersonBuilder PersonBuilderExample LayoutManagerExample)
 
 # Установка исполняемого файла
-install(TARGETS BuilderExample RUNTIME DESTINATION bin)
+install(TARGETS example RUNTIME DESTINATION bin)
 
 set(CPACK_PACKAGE_VERSION 1.0.0)
 
