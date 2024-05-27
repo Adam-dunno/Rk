@@ -4,6 +4,8 @@ project(example)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Создание библиотек
 add_library(ConceptualExample01 ${CMAKE_CURRENT_SOURCE_DIR}/ConceptualExample01.cpp)
 add_library(ConceptualExample02 ${CMAKE_CURRENT_SOURCE_DIR}/ConceptualExample02.cpp)
 add_library(Person ${CMAKE_CURRENT_SOURCE_DIR}/Person.cpp)
@@ -15,10 +17,6 @@ add_library(LayoutManagerExample ${CMAKE_CURRENT_SOURCE_DIR}/LayoutManagerExampl
 add_executable(example ${CMAKE_CURRENT_SOURCE_DIR}/Program.cpp)
 
 # Линковка библиотек с исполняемым файлом
-target_link_libraries(Person PersonBuilder)
-target_link_libraries(PersonBuilderExample PersonBuilder)
-target_link_libraries(PersonBuilder PersonBuilderExample)
-target_link_libraries(PersonBuilder Person)
 target_link_libraries(example PRIVATE ConceptualExample01 ConceptualExample02 Person PersonBuilder PersonBuilderExample LayoutManagerExample)
 
 # Добавление Google Test
@@ -37,7 +35,6 @@ file(GLOB TEST_SOURCES "Testy.cpp")
 add_executable(runTests ${TEST_SOURCES})
 target_link_libraries(runTests gtest gtest_main)
 add_test(NAME runTests COMMAND runTests)
-
 
 # Установка исполняемого файла
 install(TARGETS example RUNTIME DESTINATION bin)
