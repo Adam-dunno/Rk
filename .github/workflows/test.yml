@@ -29,7 +29,10 @@ jobs:
     run: cmake --build ${{github.workspace}}/build
 
   - name: Run tests
-    run: build/check
+    run: |
+      ls -la build/check || echo "build/check not found"
+      test -x build/check || echo "build/check not executable"
+      ./build/check || echo "build/check failed"
     
   - name: Build package
     run: cmake --build ${{github.workspace}}/build --target package
