@@ -1,22 +1,40 @@
 cmake_minimum_required(VERSION 3.22)
 
-set(CMAKE_CXX_STANDARD 17)
+project(example)
+
+set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-option(BUILD_TESTS "Build tests" OFF)
-option(PACK "pack" OFF)
+# Создание исполняемого файла
+add_executable(example ${CMAKE_CURRENT_SOURCE_DIR}/Program.cpp)
 
-project(example)
-file(GLOB SOURCES "ConceptualExample01.cpp" , "ConceptualExample02.cpp" , "LayoutManagerExample.cpp" , "Person.cpp" , "Program.cpp" , "PersonBuilder.cpp" , "PersonBuilderExample.cpp")
-add_executable(${PROJECT_NAME} ${SOURCES})
+# Линковка библиотек с исполняемым файлом
+target_link_libraries(example PRIVATE ConceptualExample01 ConceptualExample02 Person PersonBuilder PersonBuilderExample LayoutManagerExample)
 
-if(BUILD_TESTS)
-  enable_testing()
-  add_subdirectory(googletest)
-  file(GLOB TEST_SOURCES "Testy.cpp")
-  add_executable(check ${TEST_SOURCES})
-  target_link_libraries(check gtest_main)
-  add_test(NAME check COMMAND check)
-endif()
+# Установка исполняемого файла
+install(TARGETS example RUNTIME DESTINATION bin)
 
-include(CPack.cmake)
+set(CPACK_PACKAGE_VERSION 1.0.0)
+
+# Добавление Google Test
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/refs/tags/release-1.11.0.tar.gz
+)
+FetchContent_MakeAvailable(googletest)
+
+# Включение тестирования
+enable_testing()
+
+# Добавление тестов
+file(GLOB TEST_SOURCES "tests/*.cpp")
+add_executable(runTests ${TEST_SOURCES})
+target_link_libraries(runTests gtest gtest_main)
+add_test(NAME runTests COMMAND runTests)
+
+
+# Установка исполняемого файла
+install(TARGETS example RUNTIME DESTINATION bin)
+
+set(CPACK_PACKAGE_VERSION 1.0.0)
