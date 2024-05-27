@@ -28,7 +28,7 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 # Добавление тестов
-file(GLOB TEST_SOURCES "tests/*.cpp")
+file(GLOB TEST_SOURCES "Testy.cpp")
 add_executable(runTests ${TEST_SOURCES})
 target_link_libraries(runTests gtest gtest_main)
 add_test(NAME runTests COMMAND runTests)
