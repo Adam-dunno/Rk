@@ -4,9 +4,7 @@
 #include "LayoutManagerExample.cpp"
 #include "PersonBuilderExample.cpp"
 #include "PersonBuilder.cpp"
-#include "PersonBuilder.h"
 #include "Person.cpp"
-#include "Person.h"
 #include <iostream>
 
 
