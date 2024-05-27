@@ -3,6 +3,8 @@
 #include "ConceptualExample02.cpp"
 #include "LayoutManagerExample.cpp"
 #include "PersonBuilderExample.cpp"
+#include "PersonBuilder.cpp"
+
 
 TEST(BuilderTest, ConceptualExample01) {
     ASSERT_NO_THROW(test_conceptual_example_01());
