@@ -4,6 +4,10 @@ project(example)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+add_library(ConceptualExample01 ${CMAKE_CURRENT_SOURCE_DIR}/ConceptualExample01.cpp)
+add_library(ConceptualExample02 ${CMAKE_CURRENT_SOURCE_DIR}/ConceptualExample02.cpp)
+add_library(Person ${CMAKE_CURRENT_SOURCE_DIR}/Person.cpp)
+add_library(PersonBuilder ${CMAKE_CURRENT_SOURCE_DIR}/PersonBuilder.cpp)
 add_library(PersonBuilderExample ${CMAKE_CURRENT_SOURCE_DIR}/PersonBuilderExample.cpp)
 add_library(LayoutManagerExample ${CMAKE_CURRENT_SOURCE_DIR}/LayoutManagerExample.cpp)
 
