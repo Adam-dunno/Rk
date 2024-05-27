@@ -30,8 +30,8 @@ jobs:
 
     - name: Run tests
       run: |
-        cd /home/runner/work/Rk/Rk/rk2 -B/build
-        ctest --output-on-failure || exit 1
+       cd /home/runner/work/Rk/Rk/rk2
+       ctest --output-on-failure || exit 1
 
     - name: Build package
       run: cmake --build ${{github.workspace}}/build --target package
