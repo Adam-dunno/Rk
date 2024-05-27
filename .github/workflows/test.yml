@@ -28,11 +28,9 @@ jobs:
   - name: Build
     run: cmake --build ${{github.workspace}}/build
 
-    - name: Run tests
-      run: |
-        cd build
-        ctest
-
+  - name: Run tests
+    run: build/check
+    
   - name: Build package
     run: cmake --build ${{github.workspace}}/build --target package
 
