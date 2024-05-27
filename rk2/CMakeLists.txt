@@ -8,9 +8,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Создание исполняемого файла
 add_executable(example ${CMAKE_CURRENT_SOURCE_DIR}/Program.cpp)
 
-# Линковка библиотек с исполняемым файлом
-target_link_libraries(example PRIVATE ConceptualExample01 ConceptualExample02 Person PersonBuilder PersonBuilderExample LayoutManagerExample)
-
 # Установка исполняемого файла
 install(TARGETS example RUNTIME DESTINATION bin)
 
