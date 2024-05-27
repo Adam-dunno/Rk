@@ -33,6 +33,11 @@ add_executable(runTests ${TEST_SOURCES})
 target_link_libraries(runTests gtest gtest_main)
 add_test(NAME runTests COMMAND runTests)
 
+target_link_libraries(Person PersonBuilder)
+target_link_libraries(PersonBuilderExample PersonBuilder)
+target_link_libraries(PersonBuilder PersonBuilderExample)
+target_link_libraries(PersonBuilder Person)
+target_link_libraries(example PRIVATE ConceptualExample01 ConceptualExample02 Person PersonBuilder PersonBuilderExample LayoutManagerExample)
 
 # Установка исполняемого файла
 install(TARGETS example RUNTIME DESTINATION bin)
