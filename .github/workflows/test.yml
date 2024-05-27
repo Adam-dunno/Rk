@@ -29,7 +29,9 @@ jobs:
     run: cmake --build ${{github.workspace}}/build
 
   - name: Run tests
-    run: build/check
+    run: |
+      cd /home/runner/work/Rk/Rk/rk2
+      build/check
 
   - name: Build package
     run: cmake --build ${{github.workspace}}/build --target package
