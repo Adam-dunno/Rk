@@ -17,5 +17,5 @@ TEST(BuilderTest, LayoutManagerExample) {
 }
 
 TEST(BuilderTest, PersonBuilderExample) {
-    ASSERT_NO_THROW(test_layout_manager_example());
+    ASSERT_NO_THROW(test_person_builder_example());
 }
