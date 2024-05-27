@@ -23,7 +23,7 @@ jobs:
     run: git clone https://github.com/google/googletest.git third-party/gtest -b release-1.11.0
 
   - name: Config
-    run: cmake -H. -B ${{github.workspace}}/build -DBUILD_TESTS=ON
+    run: cmake /home/runner/work/Rk/Rk/rk2 -B ${{github.workspace}}/build -DBUILD_TESTS=ON
 
   - name: Build
     run: cmake --build ${{github.workspace}}/build
