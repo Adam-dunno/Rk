@@ -43,3 +43,5 @@ add_test(NAME runTests COMMAND runTests)
 install(TARGETS example RUNTIME DESTINATION bin)
 
 set(CPACK_PACKAGE_VERSION 1.0.0)
+
+include(CPack.cmake)
