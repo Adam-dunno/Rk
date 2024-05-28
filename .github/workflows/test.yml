@@ -31,7 +31,7 @@ jobs:
     - name: Run tests
       run: |
        ls build
-       cd /home/runner/work/Rk/Rk/rk2
+       cd /home/runner/work/Rk/Rk/rk2/submodule
        ls build
        ctest --output-on-failure || exit 1
 
