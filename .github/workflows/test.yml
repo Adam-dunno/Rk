@@ -30,7 +30,9 @@ jobs:
 
     - name: Run tests
       run: |
+       ls build
        cd /home/runner/work/Rk/Rk/rk2
+       ls build
        ctest --output-on-failure || exit 1
 
     - name: Build package
